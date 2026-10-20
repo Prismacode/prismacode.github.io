@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Vault · live demo</title>
+<meta name="x-title-key" content="rv2.title">
+<meta name="description" content="A knowledge base that stays useful as it grows: linked notes, a graph, and layered maps. Sample notes.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121212'/%3E%3Ccircle cx='44' cy='42' r='6' fill='%2317b07f'/%3E%3Ctext x='12' y='45' font-family='Arial' font-weight='700' font-size='30' fill='%23fff'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/kit/site.css">
+<link rel="stylesheet" href="/kit/demos.css">
+<link rel="stylesheet" href="vault.css">
+</head>
+<body class="demo vault">
+<header class="dbar"><div class="in">
+  <a class="back" href="/#demos" data-loc="/#demos">← <span data-i18n="chrome.back">All demos</span></a>
+  <span class="sep"></span>
+  <span class="ttl" data-i18n="rv2.name">Research Vault</span>
+  <span class="badge" data-i18n="chrome.sample">Sample data</span>
+  <div class="right">
+    <a class="orig" href="/work/research-vault" data-loc="/work/research-vault" data-i18n="chrome.original">The real system</a>
+    <div class="langs" role="group" aria-label="Language"><button type="button" data-lang-btn="en">EN</button><button type="button" data-lang-btn="es">ES</button></div>
+    <a class="btn btn-dark btn-s" href="https://wa.me/2975664692" data-wa="wa.demo" target="_blank" rel="noopener" data-i18n="chrome.cta">Build one for me</a>
+  </div>
+</div></header>
+
+<div class="app">
+  <aside class="side">
+    <div class="side-brand"><span class="logo" style="background:#7a8b3c">RV</span><div><b>Research Vault</b><span data-i18n="rv2.sub">Synced to phone</span></div></div>
+    <nav aria-label="Sections"></nav>
+    <p class="note"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg><span data-i18n="chrome.private">Runs entirely in your browser. Nothing you do here is sent anywhere.</span></p>
+  </aside>
+  <div>
+    <nav class="mobile-tabs" aria-label="Sections"></nav>
+    <main class="main" id="view"></main>
+  </div>
+</div>
+
+<script src="/kit/core.js"></script>
+<script src="/kit/shell.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

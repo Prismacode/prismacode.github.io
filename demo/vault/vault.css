@@ -1,0 +1,67 @@
+/* Research Vault demo */
+.vt-top { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+.vt-top .grow { flex: 1; }
+.vt-sync { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-2); background: var(--surface); border-radius: 99px; height: 34px; padding: 0 14px; font-size: 13px; color: var(--ink-2); }
+.vt-sync i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 3px var(--accent-soft); }
+.vt-sync.busy i { animation: pulse .8s infinite; background: #c9a227; }
+.vt-three { display: grid; grid-template-columns: 220px minmax(0, 1fr) 250px; gap: 16px; align-items: start; }
+.vt-tree { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px 10px; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow: auto; }
+.vt-fold { margin-bottom: 12px; }
+.vt-fold p { display: flex; align-items: center; gap: 8px; margin: 0 6px 4px; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.vt-fold p i, .vt-links i, .vt-legend i, .vt-file i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+.vt-fold a { display: block; padding: 6px 10px 6px 22px; border-radius: 8px; text-decoration: none; font-size: 13.5px; color: var(--ink-2); }
+.vt-fold a:hover { background: var(--sunk); }
+.vt-fold a.on { background: var(--ink); color: #fff; }
+.vt-note { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 34px clamp(20px, 4vw, 52px) 44px; min-height: 60vh; border-top: 4px solid var(--fc); animation: rise .45s var(--ease) both; }
+.vt-crumb { margin: 0; font: 12px var(--mono); color: var(--muted); }
+.vt-note h1 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(36px, 4.4vw, 54px); letter-spacing: -0.02em; line-height: 1.05; margin: 10px 0 8px; }
+.vt-meta { margin: 0 0 24px; font-size: 13px; color: var(--muted); }
+.vt-body p { font-size: 18px; line-height: 1.7; color: var(--ink-2); max-width: 36em; margin: 0; }
+.vt-link { color: var(--ink); text-decoration: none; background: linear-gradient(transparent 62%, var(--accent-soft) 62%); border-bottom: 1.5px solid var(--accent-2); font-weight: 550; transition: background .2s; }
+.vt-link:hover { background: var(--accent-soft); }
+.vt-body mark { background: #fff1b8; border-radius: 3px; }
+.vt-links { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px; position: sticky; top: 80px; }
+.vt-links h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; display: flex; justify-content: space-between; }
+.vt-links h3 + * { margin-top: 0; }
+.vt-links h3:not(:first-child) { margin-top: 16px; }
+.vt-links h3 span { color: var(--ink); }
+.vt-links a { display: flex; gap: 8px; align-items: center; padding: 6px 8px; border-radius: 8px; text-decoration: none; font-size: 13.5px; }
+.vt-links a:hover { background: var(--sunk); }
+.vt-mini { width: 100%; max-width: 200px; margin: 14px auto 0; display: block; }
+.vt-mini line { stroke: var(--line-2); stroke-width: 1.2; }
+.vt-mini circle { stroke: var(--surface); stroke-width: 2; cursor: pointer; transition: r .2s; }
+.vt-mini circle:hover { r: 8; }
+.vt-mini .me { stroke: var(--accent-soft); stroke-width: 5; }
+.vt-gcard { padding: 10px; overflow: hidden; }
+.vt-graph { width: 100%; height: auto; display: block; touch-action: none; user-select: none; }
+.vt-graph line { stroke: var(--line-2); stroke-width: 1.2; transition: opacity .2s; }
+.vt-graph line.hot { stroke: var(--accent); stroke-width: 2; }
+.vt-graph line.dim { opacity: .25; }
+.vt-node { cursor: grab; transition: opacity .2s; }
+.vt-node circle { stroke: var(--surface); stroke-width: 2.5; transition: transform .2s; }
+.vt-node text { font: 500 12px var(--sans); fill: var(--ink-2); pointer-events: none; paint-order: stroke; stroke: var(--surface); stroke-width: 4px; }
+.vt-node.dim { opacity: .2; }
+.vt-node.hot circle { transform: scale(1.35); }
+.vt-node.hot text { font-weight: 700; fill: var(--ink); }
+.vt-legend { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; padding: 8px 0 6px; font-size: 13px; color: var(--muted); }
+.vt-legend span { display: inline-flex; gap: 6px; align-items: center; }
+.vt-ask { display: flex; gap: 10px; max-width: 720px; }
+.vt-ask input { flex: 1; height: 50px; border: 1.5px solid var(--line-2); border-radius: 99px; padding: 0 22px; font-size: 16px; background: var(--surface); min-width: 0; }
+.vt-ask input:focus { outline: none; border-color: var(--accent); }
+.vt-ask .btn { height: 50px; }
+.vt-layers { display: grid; gap: 10px; max-width: 860px; }
+.vt-layer { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; opacity: .35; transition: opacity .3s, border-color .3s; }
+.vt-layer.on { opacity: 1; border-color: var(--accent); animation: rise .4s var(--ease) both; }
+.vt-layer > :nth-child(n+2) { grid-column: 2; }
+.vt-lh { display: flex; gap: 10px; align-items: baseline; grid-row: 1 / 99; }
+.vt-lh span { font: 600 12px var(--mono); color: var(--accent); }
+.vt-lh b { font-size: 16px; }
+.vt-file { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 10px; background: var(--sunk); margin-bottom: 6px; text-decoration: none; font-size: 14px; }
+a.vt-file:hover { background: var(--accent-soft); }
+.vt-file em { margin-left: auto; font-style: normal; font: 11.5px var(--mono); color: var(--muted); }
+.vt-file.skip { background: none; border: 1px dashed var(--line-2); color: var(--faint); }
+.vt-cost { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; background: var(--ink); color: #f1f0ea; border-radius: 16px; padding: 16px 20px; animation: rise .4s var(--ease) both; }
+.vt-cost b { font-size: 20px; letter-spacing: -0.03em; }
+.vt-cost span { color: #b9b8b0; font-size: 14px; }
+@media (max-width: 1180px) { .vt-three { grid-template-columns: 200px minmax(0, 1fr); } .vt-links { grid-column: 1 / -1; position: static; } }
+@media (max-width: 760px) { .vt-three { grid-template-columns: 1fr; } .vt-tree { position: static; max-height: 220px; } .vt-layer { grid-template-columns: 1fr; } .vt-layer > :nth-child(n+2) { grid-column: 1; } .vt-lh { grid-row: auto; } .vt-node text { font-size: 15px; } }
